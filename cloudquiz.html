@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
+    <link rel="stylesheet" href="css/zrq.css" />
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+
+
+    <style>
+    .noshadow * {
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+    form.ui-mini .ui-field-contain fieldset.ui-controlgroup legend small {
+        color: #666;
+    }
+    </style>
+</head>
+
+<body>
+    <div data-role="page" id="testpage" class="ui-page-theme-b">
+        <div data-role="header">
+            <a href="index.html" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left ui-btn-icon-notext">Back</a> 
+        </div>
+        <div class="ui-content" role="main">
+            <h2>Cloud Quiz</h2>
+            <p>Para responder, necessita fazer login</p>
+            <div id="ui-body-test" class="ui-body ui-body-a ui-corner-all" style="margin-bottom:1em;">
+                <label for="name3">User:</label>
+                <input type="text" name="name3" id="name3" value="" data-clear-btn="true">
+                <label for="name3">Password:</label>
+                <input type="text" name="name3" id="name3" value="" data-clear-btn="true">
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-active">Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

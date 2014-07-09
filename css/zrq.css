@@ -11,14 +11,61 @@
     margin-left: 19px
 }
 .zrqImagem {
+    border: 0px solid red;
+    width: 100%;
+    /*left: 2%;*/
+    /*right: 2%;*/
+    position: relative;
+    /*height: 100%;*/
+    /*position: absolute;*/
+    
+
+    background-color: #002E48;}
+/*.zrqColor {
+    position: absolute;
     width: 100%;
     height: 100%;
-    background-image:url('../images/back.jpg');
-    /*background-c: ;olor:red;*/
+    background-color: #002E48;
+}*/
+.zrqCloudQuiz {
+    border: 3px solid red;
+    float: left;
+    position: absolute;
+    width: 100%;
+    height: 95%;
 }
-.ui-page, .ui-dialog {
-    background: transparent repeat scroll;
+.zrqFooter1 {
+    /*border: 1px solid yellow;*/
+    float: left;
+    position: fixed;
+    bottom: 0px;
+    width: 50%;
+    height: 70px;
+    /*top: 90%;*/
 }
+.zrqFooter2 {
+    /*border: 1px solid green;*/
+    float: left;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 50%;
+    height: 70px;
+    /*top: 90%;*/
+}
+/*.ui-page, .ui-content, .ui-btn {
+    background-color: #002E48;
+}*/
+
+/* body {
+    background-image: url("../images/iphone.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}*/
+
+/*
 body {
-    background: url(../images/back.jpg) repeat center 0!important;
-}
+    background: url(../images/iphone.jpg) !important;
+    background-attachment:fixed;
+
+    /*background-size:cover;*/

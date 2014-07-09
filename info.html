@@ -14,6 +14,13 @@
 
     <script>
     $(document).on("pagecreate", function() {
+        $("#testpage").removeClass("ui-page-theme-a ui-page-theme-b").addClass("ui-page-theme-b");
+        $("#testpage").removeClass("ui-page-theme-a ui-page-theme-b").addClass("ui-page-theme-b");
+        $("#ui-body-test").removeClass("ui-body-a ui-body-b").addClass("ui-body-b");
+        $("#ui-bar-test, #ui-bar-form").removeClass("ui-bar-a ui-bar-b").addClass("ui-bar-b");
+        $(".ui-collapsible-content").removeClass("ui-body-a ui-body-b").addClass("ui-body-b");
+        $(".theme").text("b");
+
         $("#theme-selector input").on("change", function(event) {
             var themeClass = $("#theme-selector input:checked").attr("id");
 
@@ -87,9 +94,9 @@
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <legend>Tema:</legend>
                         <label for="a">A</label>
-                        <input type="radio" name="theme" id="a" checked>
+                        <input type="radio" name="theme" id="a">
                         <label for="b">B</label>
-                        <input type="radio" name="theme" id="b">
+                        <input type="radio" name="theme" id="b" checked>
                     </fieldset>
                 </div>
                 <div class="ui-field-contain" id="opt-navbars">
@@ -261,7 +268,7 @@
             </form>
 
             <div id="ui-bar-form" class="ui-bar ui-bar-a">
-               
+
                 <div class="ui-field-contain">
                     <label for="name4">Input de texto:</label>
                     <input type="text" name="name4" id="name4" value="" data-clear-btn="true">
