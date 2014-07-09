@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Default theme - jQuery Mobile Demos</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
+    <link rel="stylesheet" href="css/zrq.css" />
+
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+
+    <script>
+    $(document).on("pagecreate", function() {
+        $("#theme-selector input").on("change", function(event) {
+            var themeClass = $("#theme-selector input:checked").attr("id");
+
+            $("#testpage").removeClass("ui-page-theme-a ui-page-theme-b").addClass("ui-page-theme-" + themeClass);
+            $("#ui-body-test").removeClass("ui-body-a ui-body-b").addClass("ui-body-" + themeClass);
+            $("#ui-bar-test, #ui-bar-form").removeClass("ui-bar-a ui-bar-b").addClass("ui-bar-" + themeClass);
+            $(".ui-collapsible-content").removeClass("ui-body-a ui-body-b").addClass("ui-body-" + themeClass);
+            $(".theme").text(themeClass);
+        });
+        $("#opt-shadow input").on("change", function(event) {
+            if ($("#on").prop("checked")) {
+                $("#testpage").removeClass("noshadow");
+            } else if ($("#off").prop("checked")) {
+                $("#testpage").addClass("noshadow");
+            }
+        });
+        $("#opt-iconshadow input").on("change", function(event) {
+            if ($("#off1").prop("checked")) {
+                $("#testpage").removeClass("ui-shadow-icon");
+            } else if ($("#on1").prop("checked")) {
+                $("#testpage").addClass("ui-shadow-icon");
+            }
+        });
+        $("#opt-navbars input").on("change", function(event) {
+            if ($("#show").prop("checked")) {
+                $("#testpage .ui-navbar").show();
+                $("#testpage .ui-footer h4").hide();
+            } else if ($("#hide").prop("checked")) {
+                $("#testpage .ui-navbar").hide();
+                $("#testpage .ui-footer h4").show();
+            }
+        });
+    });
+    </script>
+    <style>
+    .noshadow * {
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+    form.ui-mini .ui-field-contain fieldset.ui-controlgroup legend small {
+        color: #666;
+    }
+    </style>
+</head>
+
+<body>
+    <div data-role="page" id="testpage">
+
+        <div data-role="header">
+            <h1>Tema default</h1>
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left ui-btn-icon-notext">Voltar</a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-gear">Botao</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" class="ui-btn-active ui-state-persist">Sou meu 1</a>
+                    </li>
+                    <li><a href="#">Sou menu 2</a>
+                    </li>
+                    <li><a href="#">Sou menu 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /header -->
+
+        <div class="ui-content" role="main">
+
+            <form class="ui-mini">
+                <div class="ui-field-contain" id="theme-selector">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Tema:</legend>
+                        <label for="a">A</label>
+                        <input type="radio" name="theme" id="a" checked>
+                        <label for="b">B</label>
+                        <input type="radio" name="theme" id="b">
+                    </fieldset>
+                </div>
+                <div class="ui-field-contain" id="opt-navbars">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Navbars:</legend>
+                        <label for="show">Mostra</label>
+                        <input type="radio" name="navbars" id="show" checked>
+                        <label for="hide">Esconde</label>
+                        <input type="radio" name="navbars" id="hide">
+                    </fieldset>
+                </div>
+
+
+            </form>
+
+            <div id="ui-body-test" class="ui-body ui-body-a ui-corner-all" style="margin-bottom:1em;">
+
+                <p><a href="#">Sou um link</a>
+                </p>
+                <h4>Menu esquerdo:</h4>
+                <a href="#panel-reveal" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-mini">Empurra</a>
+                <a href="#panel-overlay" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-mini">Sobrepoe</a>
+                <!-- <a href="#panel-push" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-mini">Push</a> -->
+            </div>
+
+            <div id="ui-bar-test" class="ui-bar ui-bar-a ui-corner-all" style="margin-bottom:1em;">
+                <p>Eu sou um exemplo duma area mais escurinha</p>
+            </div>
+
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-right">Botao 1</a>
+            <button class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-right">Botao 2</button>
+            <!-- <input type="button" value="buttons" data-inline="true" data-icon="carat-r" data-iconpos="right"> -->
+
+            <ul data-role="listview" data-inset="true">
+                <li>Sou</li>
+                <li data-role="list-divider">separador
+                    <span class="ui-li-count">3</span>
+                </li>
+                <li>uma</li>
+                <li>lista
+                    <span class="ui-li-count">6</span>
+                </li>
+            </ul>
+
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#">Sou</a>
+                </li>
+                <li data-role="list-divider">Divider</li>
+                <li><a href="#">uma<span class="ui-li-count">4</span></a>
+                </li>
+                <li><a href="#">lista clicavel</a>
+                </li>
+            </ul>
+
+            <ul data-role="listview" data-split-icon="gear" data-inset="true">
+                <li>
+                    <a href="#">
+                        <img class="alinhar1" src="images/img01.jpg">
+                        <h2>Imagem 1</h2>
+                        <p>Texto exemplo</p>
+                    </a>
+                    <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="alinhar2" src="images/img02.jpg">
+                        <h2>Imagem 2</h2>
+                        <p>Texto exemplo</p>
+                    </a>
+                    <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="alinhar3" src="images/img03.jpg">
+                        <h2>Imagem 3</h2>
+                        <p>Texto exemplo</p>
+                    </a>
+                    <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+                </li>
+            </ul>
+
+            <form>
+                <div class="ui-field-contain">
+                    <label for="name2">Texto de input:</label>
+                    <input type="text" name="name2" id="name2" value="" data-clear-btn="true">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="textarea2">Area de texto:</label>
+                    <textarea cols="40" rows="8" name="textarea2" id="textarea2"></textarea>
+                </div>
+                <div class="ui-field-contain">
+                    <label for="flip2">Switch:</label>
+                    <select name="flip2" id="flip2" data-role="flipswitch">
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
+                    </select>
+                </div>
+                <div class="ui-field-contain">
+                    <label for="slider2">Slider:</label>
+                    <input type="range" name="slider2" id="slider2" value="0" min="0" max="100" data-highlight="true">
+                </div>
+                <div class="ui-field-contain">
+                    <fieldset data-role="controlgroup">
+                        <legend>Checkbox:</legend>
+                        <input type="checkbox" name="checkbox-v-1a" id="checkbox-v-1a">
+                        <label for="checkbox-v-1a">Um</label>
+                        <input type="checkbox" name="checkbox-v-1b" id="checkbox-v-1b">
+                        <label for="checkbox-v-1b">Dois</label>
+                        <input type="checkbox" name="checkbox-v-1c" id="checkbox-v-1c">
+                        <label for="checkbox-v-1c">Tres</label>
+                    </fieldset>
+                </div>
+                <div class="ui-field-contain">
+                    <fieldset data-role="controlgroup">
+                        <legend>Opcoes:</legend>
+                        <input type="radio" name="radio-v-1" id="radio-v-1a" checked>
+                        <label for="radio-v-1a">Um</label>
+                        <input type="radio" name="radio-v-1" id="radio-v-1b">
+                        <label for="radio-v-1b">Dois</label>
+                        <input type="radio" name="radio-v-1" id="radio-v-1c">
+                        <label for="radio-v-1c">Tres</label>
+                    </fieldset>
+                </div>
+                <div class="ui-field-contain">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Grupo:</legend>
+                        <button class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right">Um</button>
+                        <input type="button" data-icon="back" data-iconpos="right" value="Dois">
+                        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-grid ui-btn-icon-right">Tres</a>
+                    </fieldset>
+                </div>
+                <div class="ui-field-contain">
+                    <label for="select-choice-1" class="select">Selecao valores:</label>
+                    <select name="select-choice-1" id="select-choice-1" data-native-menu="false" multiple="multiple">
+                        <option value="standard">Opcao A: 5 eur</option>
+                        <option value="rush">Opcao B: 2 eur</option>
+                        <option value="express">Opcao C: 10 eur</option>
+                        <option value="overnight">Gratis</option>
+                    </select>
+                </div>
+                <div class="ui-field-contain">
+                    <label for="submit-1">Enviar form:</label>
+                    <input type="submit" id="submit-1" value="Send">
+                </div>
+            </form>
+
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left ui-btn-active">Botao activo</a>
+
+            <p>Mais um exemplo duma form:</p>
+
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    <li class="ui-field-contain">
+                        <label for="name3">Input de texto:</label>
+                        <input type="text" name="name3" id="name3" value="" data-clear-btn="true">
+                    </li>
+                    <li class="ui-field-contain">
+                        <label for="flip3">Switch:</label>
+                        <select name="flip3" id="flip3" data-role="slider">
+                            <option value="off">Off</option>
+                            <option value="on">On</option>
+                        </select>
+                    </li>
+                    <li class="ui-field-contain">
+                        <label for="slider3">Slider:</label>
+                        <input type="range" name="slider3" id="slider3" value="0" min="0" max="100" data-highlight="true">
+                    </li>
+                </ul>
+            </form>
+
+            <div id="ui-bar-form" class="ui-bar ui-bar-a">
+               
+                <div class="ui-field-contain">
+                    <label for="name4">Input de texto:</label>
+                    <input type="text" name="name4" id="name4" value="" data-clear-btn="true">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="flip4">Switch:</label>
+                    <select name="flip4" id="flip4" data-role="slider">
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
+                    </select>
+                </div>
+                <div class="ui-field-contain">
+                    <label for="slider4">Slider:</label>
+                    <input type="range" name="slider4" id="slider4" value="0" min="0" max="100" data-highlight="true">
+                </div>
+            </div>
+
+            <div data-role="collapsible" data-content-theme="a">
+                <h4>Expandir</h4>
+                <p>Sou o conteudo desta seccao"
+                    <span class="theme">a</span>".</p>
+            </div>
+
+            <div data-role="collapsibleset" data-content-theme="a">
+                <div data-role="collapsible">
+                    <h3>Seccao 1</h3>
+                    <p>Sou o conteudo desta seccao 1</p>
+                </div>
+                <div data-role="collapsible">
+                    <h3>Seccao 2</h3>
+                    <p>Sou o conteudo desta seccao 2</p>
+                </div>
+                <div data-role="collapsible">
+                    <h3>Seccao 3</h3>
+                    <p>Sou o conteudo desta seccao 3</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- /content -->
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Menu 1</a>
+                    </li>
+                    <li><a href="#" class="ui-btn-active ui-state-persist">Menu 2</a>
+                    </li>
+                    <li><a href="#">Menu 3</a>
+                    </li>
+                </ul>
+            </div>
+            <h4 style="display:none;">Footer</h4>
+        </div>
+
+        <div data-role="panel" id="panel-reveal">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="#" data-rel="close">Fechar</a>
+                </li>
+                <li><a href="#">Item nr 1</a>
+                </li>
+                <li><a href="#">Item nr 2</a>
+                </li>
+                <li><a href="#">Item nr 3</a>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <button class="ui-btn ui-corner-all ui-shadow">Botao</button>
+        </div>
+
+        <div data-role="panel" id="panel-overlay" data-display="overlay">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="#" data-rel="close">Fechar</a>
+                </li>
+                <li><a href="#">Item nr 1</a>
+                </li>
+                <li><a href="#">Item nr 2</a>
+                </li>
+                <li><a href="#">Item nr 3</a>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <button class="ui-btn ui-corner-all ui-shadow">Botao</button>
+        </div>
+
+        <div data-role="panel" id="panel-push" data-display="push">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="#" data-rel="close">Fechar</a>
+                </li>
+                <li><a href="#">Item nr 1</a>
+                </li>
+                <li><a href="#">Item nr 2</a>
+                </li>
+                <li><a href="#">Item nr 3</a>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <button class="ui-btn ui-corner-all ui-shadow">Botao</button>
+        </div>
+
+    </div>
+    <!-- /page -->
+
+</body>
+
+</html>
